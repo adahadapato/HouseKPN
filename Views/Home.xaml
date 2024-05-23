@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="HouseKPN.Views.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:HouseKPN.Views"
+             xmlns:vm="clr-namespace:HouseKPN.ViewModels"
+             Background="Transparent" 
+             Height="500" 
+             Width="800">
+   
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1.5*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Images/close.png" 
+                Grid.Column="1" 
+                Panel.ZIndex="1" 
+               
+                Style="{StaticResource imgClose}">
+            <Image.InputBindings>
+                <MouseBinding Gesture="LeftClick" 
+                  Command="{Binding CloseWindowCommand, Mode=OneTime}" />
+            </Image.InputBindings>
+        </Image>
+
+        <Border CornerRadius="10 0 0 10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#623ed0" Offset="0" />
+                    <GradientStop Color="#3AADA1" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Canvas>
+                    <Polygon Points="0,20 230,140 0,270" Fill="#4EB1B6" />
+                    <Polygon Points="100,400 200,370 180,470" Fill="#4EB1B6" />
+                    <Ellipse Margin="250 450 0 0" Width="40" Height="40" Fill="#4EB1B6" />
+                    <Ellipse Margin="50 400 0 0" Width="20" Height="20" Fill="#4EB1B6" />
+                </Canvas>
+
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Welcome" Style="{StaticResource TitleText}" />
+                    <TextBlock Text="This is ICT Automated Operations System (AOS)" 
+                               Opacity="0.8" 
+                               Margin="20 30 20 30" 
+                               Style="{StaticResource NormalText}" />
+                    <Button Content="Continue . . ." Style="{StaticResource button}" 
+                            Command="{Binding Path = NavigateToLoginCommand}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Background="#FFFFFF" Grid.Column="1" CornerRadius="0 10 10 0" >
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Instructions" 
+                           Foreground="#035B1F" 
+                           Style="{StaticResource TitleText}" />
+                <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource buttonCircle}">
+                        <Image Source="/Images/google.png" Width="20" Height="20" />
+                    </Button>
+                    <Button Style="{StaticResource buttonCircle}">
+                        <Image Source="/Images/facebook.png" Width="20" Height="20" />
+                    </Button>
+                    <Button Style="{StaticResource buttonCircle}">
+                        <Image Source="/Images/linkedin.png" Width="20" Height="20" />
+                    </Button>
+                </StackPanel>
+
+                <TextBlock Text="use your personnel number and password to login. 
+                            If you dont have an account, you need to create one, using your official email and a strong password.
+                            Note however, that your account will not active untill you have confirmed your email. If you have any difficulties performing
+                            any of these operations, please contact your supervisor of any of the programmers." 
+                            Margin="0 10 0 15" 
+                            Foreground="#878787" 
+                            TextAlignment="left"
+                            TextWrapping="Wrap"
+                            Width="450"
+                            Style="{StaticResource NormalText}" />
+
+                <TextBlock Text="This system is used to effect corrections on our local systems as well as the online databases.
+                           
+                                 Note that only authorised users can perform these operations."
+                                Margin="0 10 0 15" 
+                                Foreground="#878787" 
+                                TextAlignment="left"
+                                TextWrapping="Wrap"
+                                Width="450"
+                                Style="{StaticResource NormalText}" />
+
+
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>
